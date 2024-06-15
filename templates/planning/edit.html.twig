@@ -1,0 +1,18 @@
+{% extends 'table.html.twig' %}
+
+{% block title %}Modifier le Planning{% endblock %}
+{% block tablename %}
+Modifier le Planning
+{% endblock %}
+
+{% block button %}
+{{ include('planning/_delete_form.html.twig') }}
+
+    <a href="{{ path('app_planning_index') }}" class="btn btn-dark btn-sm" ><i class="fas fa-arrow-left mr-2"></i>Retour</a>
+{% endblock %}
+
+{% block table %}
+
+    {{ include('planning/_form.html.twig', {'button_label': 'Mise à jour'}) }}
+    
+{% endblock %}

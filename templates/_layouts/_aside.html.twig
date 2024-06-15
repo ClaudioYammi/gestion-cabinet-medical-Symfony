@@ -1,0 +1,149 @@
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="{{ path('app_home') }}" class="brand-link">
+      <img src="{{asset('assets/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">ACTIVIA V1.0.0</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="{{asset('assets//img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          {% if app.user %}
+              {% if is_granted('ROLE_ADMIN') %}
+                  <a href="#" class="d-block-inline">Admin: <a class="btn btn-danger btn-xs" style="color: white"><b>{{ app.user.username }}</b></a>  </a>
+              {% else %}
+                  <a href="#" class="d-block-inline"> User: <a class="btn btn-warning btn-xs" style="color: black"><b>{{ app.user.username }}</b></a>  </a>
+              {% endif %}
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- SidebarSearch Form -->
+      {# <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
+        </div>
+      </div> #}
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <li class="nav-item ">
+            <a href="{{ path('app_home') }}" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard
+              </p>
+            </a>
+          </li>
+          {% if is_granted('ROLE_ADMIN') %}
+            <li class="nav-item">
+              <a href="{{path('app_user_index')}}" class="nav-link">
+                <i class="nav-icon fas fa-users"></i>
+                <p>
+                  Utilisateur
+                </p>
+              </a>
+            </li>
+          {% endif %}
+          <li class="nav-item">
+            <a href="{{path('app_consultation_index')}}" class="nav-link">
+              <i class="nav-icon fas fa-stethoscope"></i>
+              <p>
+                Consultation
+              </p>
+            </a>
+          </li>
+          <li class="nav-header">MENU</li>
+          <li class="nav-item">
+            <a href="{{path('app_infirmier_index')}}" class="nav-link">
+              <i class="nav-icon fas fa-user-nurse"></i>
+              <p>
+                Infirmier
+                {# <span class="badge badge-info right">6</span> #}
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{path('app_medecin_index')}}" class="nav-link">
+              <i class="nav-icon fas fa-user-md"></i>
+              <p>
+                Medecin
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{path('app_chambre_index')}}" class="nav-link">
+              <i class="nav-icon fas fa-bed"></i>
+              <p>
+                Chambres
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{path('app_patient_index')}}" class="nav-link">
+              <i class="nav-icon fas fa-user-injured"></i>
+              <p>
+                Patient
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+          {# {{ path('app_chartjs')}} #}
+            <a href="{{path('app_planning_index')}}" class="nav-link">
+              <i class="nav-icon fas fa-calendar-alt"></i>
+              <p>
+                Planning
+              </p>
+            </a>
+          </li>
+          
+          <li class="nav-item">
+            <a href="{{path('app_prescription_index')}}" class="nav-link">
+              <i class="nav-icon fas fa-file-prescription"></i>
+              <p>
+                Prescription
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{path('app_service_index')}}" class="nav-link">
+              <i class="nav-icon fas fa-cogs"></i>
+              <p>
+               Service
+              </p>
+            </a>
+          </li>
+          {# <li class="nav-item">
+            <a href="{{path('app_voitures_index')}}" class="nav-link">
+              <i class="nav-icon far fa-envelope"></i>
+              <p>
+                Voitures
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{path('app_voyages_index')}}" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Voyages Disponibles
+              </p>
+            </a>
+          </li> #}
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>

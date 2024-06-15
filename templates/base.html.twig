@@ -1,16 +1,75 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="{{asset('assets/img/AdminLTELogo.png')}}" />
+  <title>{% block title %}Tableau de Bord{% endblock %}</title>
 
-        {% block javascripts %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+  {% include '_layouts/_statics/_stylesheets.html.twig' %}
+
+    {% block stylesheets %}
+
+    {% endblock %}
+
+    {% block javascripts %}
+      
+    {% endblock %}
+</head>
+<body class="hold-transition sidebar-mini layout-fixed ">
+<div class="wrapper">
+
+  <!-- Preloader -->
+  {# <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+  </div> #}
+
+  <!-- Navbar -->
+  {% include '_layouts/_nav.html.twig' %}
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  {% include '_layouts/_aside.html.twig' %}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    {# <div class="content-header"> #}
+      {# <div class="container"> #}
+        <div class="row mb-2">
+          {# <div class="col-sm-6">
+            <h1 class="m-0">Dashboard</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard v1</li>
+            </ol>
+          </div><!-- /.col --> #}
+          <div class="col-12" >
+            {% block message_dismiss %}{% endblock %}
+          </div>
+          
+        {# </div><!-- /.row --> #}
+      {# </div><!-- /.container-fluid --> #}
+    </div>
+    <!-- /.content-header -->
+  {% block body %}
+
+  {% endblock %}
+    <!--- - - - - - -  Main content -->
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  {% include '_layouts/_footer.html.twig' %}
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+</div>
+{% include '_layouts/_statics/_scripts.html.twig' %}
+
+{% block scripts %}
+{% endblock %}
+</body>
 </html>

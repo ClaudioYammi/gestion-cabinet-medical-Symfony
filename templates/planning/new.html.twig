@@ -1,0 +1,18 @@
+{% extends 'table.html.twig' %}
+
+{% block title %}Création nouveau Planning{% endblock %}
+
+{% block tablename %}
+Création nouveau Planning
+{% endblock %}
+
+{% block button %}
+    <a href="{{ path('app_planning_index') }}" class="btn btn-block btn-dark btn-sm" ><i class="fas fa-arrow-left mr-2"></i>Retour</a>
+{% endblock %}
+
+{% block table %}
+
+    {{ include('planning/_form.html.twig') }}
+
+    
+{% endblock %}

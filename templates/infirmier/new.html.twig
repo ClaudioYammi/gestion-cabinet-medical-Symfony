@@ -1,0 +1,14 @@
+{% extends 'table.html.twig' %}
+
+{% block title %}Nouveau infirmier{% endblock %}
+{% block tablename %}Nouveau infirmier{% endblock %}
+
+{% block button %}
+    <a href="{{ path('app_infirmier_index') }}" class="btn btn-block btn-dark btn-sm" ><i class="fas fa-arrow-left mr-2"></i>Retour</a>
+{% endblock %}
+{% block table %}
+
+    {{ include('infirmier/_form.html.twig') }}
+
+    
+{% endblock %}

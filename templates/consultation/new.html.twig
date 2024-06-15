@@ -1,0 +1,16 @@
+{% extends 'table.html.twig' %}
+
+{% block title %}New Consultation{% endblock %}
+{% block tablename %}
+Consultation Create
+{% endblock %}
+
+{% block button %}
+        <a href="{{ path('app_consultation_index') }}" class="btn btn-block btn-dark btn-sm" ><i class="fas fa-arrow-left mr-2"></i>Retour</a>
+{% endblock %}
+{% block table %}
+
+    {{ include('consultation/_form.html.twig') }}
+
+    
+{% endblock %}

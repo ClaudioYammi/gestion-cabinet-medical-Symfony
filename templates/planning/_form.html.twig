@@ -1,0 +1,34 @@
+{{ form_start(form) }}
+    {# {{ form_widget(form) }} #}
+        <div class="card-body">
+            <div class="row mb-5">
+                <div class="col-6">
+                    <label>Nom du médecin</label>   
+                    {{ form_widget(form.medecin)}}
+                </div>
+                <div class="col-6">
+                    <label>Nom de l'infirmier</label>   
+                    {{ form_widget(form.infirmier)}}
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-4">
+                    <label>Date</label>   
+                    {{ form_widget(form.date)}}
+                </div>
+                <div class="col-4">
+                <label>Heure du debut</label>   
+                    {{ form_widget(form.heure_debut)}}
+                </div>
+                <div class="col-4">
+                <label>Heure de fin</label>   
+                    {{ form_widget(form.heure_fin)}}
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-3">
+                    <button class="btn  btn-success ">{{ button_label|default('Enregistrer') }}</button>
+                </div>
+            </div>
+        </div>
+{{ form_end(form) }}

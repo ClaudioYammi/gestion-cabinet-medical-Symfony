@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Agences index{% endblock %}
+
+{% block stylesheets %}
+   <!-- DataTables -->
+  <link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{ asset('assets/css/adminlte.min.css') }}">
+{% endblock %}
+
+{% block message_dismiss %}{% endblock %}
+
+
+{% block body %}
+
+    <section class="content">
+      <div class="container-fluid">
+        <!-- /.row -->
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">{% block tablename %}{% endblock %}</h3>
+
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                      {% block tableserach %}{% endblock %}
+
+                      <!-- /button -->
+                      {% block button %}
+                      {% endblock %}
+
+                      </button>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0" style="height: 390px;">
+                <table class="table table-head-fixed text-nowrap">
+                    {% block table %}{% endblock %}
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+    {% block scripts %}
+      <!-- DataTables  & Plugins -->
+      <!-- jQuery -->
+    <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
+    <!-- Bootstrap 4 -->
+    <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- AdminLTE App -->
+    <script src="{{ asset('assets/js/adminlte.min.js') }}"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="{{ asset('assets/js/demo.js') }}"></script>
+
+    
+    {% endblock %}
+{% endblock %}

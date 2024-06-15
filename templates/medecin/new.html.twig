@@ -1,0 +1,14 @@
+{% extends 'table.html.twig' %}
+
+{% block title %}New Medecin{% endblock %}
+
+{% block tablename%}Création Médecin{% endblock %}
+{% block button %} 
+    <a href="{{ path('app_medecin_index') }}" class="btn btn-block btn-dark btn-sm"><i class="fas fa-arrow-left mr-2"></i>Retour</a>
+{% endblock %}
+{% block table %}
+
+    {{ include('medecin/_form.html.twig') }}
+
+   
+{% endblock %}

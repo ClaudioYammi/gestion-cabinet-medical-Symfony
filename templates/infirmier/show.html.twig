@@ -1,0 +1,38 @@
+{% extends 'table.html.twig' %}
+
+{% block title %}Infirmier{% endblock %}
+{% block tablename %}Vue Patient{% endblock %}
+{% block button %}
+    <a href="{{ path('app_infirmier_index') }}" class="btn btn-dark btn-sm">Retour</a>
+
+    <a href="{{ path('app_infirmier_edit', {'id': infirmier.id}) }}" class="btn btn-secondary btn-sm  ml-3">Modifier</a>
+{% endblock %}
+{% block table %}
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ infirmier.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ infirmier.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ infirmier.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ infirmier.telephone }}</td>
+            </tr>
+            <tr>
+                <th>{{ include('infirmier/_delete_form.html.twig') }}</th>
+            </tr>
+        </tbody>
+    </table>
+
+    
+
+    
+{% endblock %}

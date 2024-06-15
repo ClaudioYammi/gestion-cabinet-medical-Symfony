@@ -1,0 +1,139 @@
+{% extends 'table.html.twig' %}
+
+{% block tablename %}
+    Liste des Infirmier
+{% endblock %}
+
+{% block button %}
+    <a href="{{ path('app_infirmier_new') }}"  class="btn btn-block btn-info btn-sm"><i class="fas fa-user-plus mr-2"></i>Nouveau</a>
+{% endblock %}
+
+{% block title %}Liste des Infirmier{% endblock %}
+
+{% block message_dismiss %}
+    {# message notifiaction ------------------------------------------------- #}
+    {% for flashMessage in app.flashes('success') %}
+        <div class="alert alert-success alert-dismissible d-flex align-items-center m-3" role="alert">
+            <button type="button" class="close" data-dismiss="alert" >&times;</button>
+            {{ flashMessage }}
+            
+        </div>
+    {% endfor %}
+
+    {% for flashMessage in app.flashes('success_delete') %}
+        <div class="alert alert-danger alert-dismissible d-flex align-items-center m-3" role="alert">
+            <button type="button" class="close" data-dismiss="alert" >&times;</button>
+            {{ flashMessage }}
+           
+        </div>
+    {% endfor %}
+
+    {% for flashMessage in app.flashes('success_edit') %}
+        <div class="alert alert-warning alert-dismissible d-flex align-items-center m-3" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" >&times;</button>
+                  {{ flashMessage }}
+        </div>
+    {% endfor %}
+
+
+    
+    {# message notifiaction ------------------------------------------------- #}
+
+{% endblock %}
+
+{% block table %}
+
+    <form action="{{ path('app_infirmier_index') }}" method="GET">
+
+        <div class="input-group mb-3 my-3">
+            <input type="text" class="form-control mx-2" name="search" placeholder="Rechercher un infirmier" value="{{ searchTerm }}">
+                <div class="d-flex">
+                    <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+                    <button class="btn btn-secondary btn-block mx-2" type="button" onclick="window.location.href='{{ path('app_infirmier_index') }}'">
+                        <i class="fas fa-sync-alt"></i> 
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Telephone</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% if searchTerm is defined and searchTerm != '' %}
+        {% for infirmier in infirmiers %}
+        {% if searchTerm in infirmier.nom or searchTerm in infirmier.prenom %}
+            <tr>
+                <td>{{ infirmier.id }}</td>
+                <td>{{ infirmier.nom }}</td>
+                <td>{{ infirmier.prenom }}</td>
+                <td>{{ infirmier.telephone }}
+                </td>
+                <td>
+                    <a href="{{ path('app_infirmier_show', {'id': infirmier.id}) }}">show</a>
+                    <a href="{{ path('app_infirmier_edit', {'id': infirmier.id}) }}">edit</a>
+                </td>
+            </tr>
+            {% endif %}
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+    {% else %}
+        {% if infirmiers is empty %}
+        <tr>
+            <td colspan="8">No records found</td>
+        </tr>
+    {% else %}
+            {% for infirmier in pagination %}
+            <tr>
+                <td>{{ infirmier.id }}</td>
+                <td>{{ infirmier.nom }}</td>
+                <td>{{ infirmier.prenom }}</td>
+                <td>{{ infirmier.telephone }}</td>
+                <td>
+                <div class="d-flex">
+                    <a href="{{ path('app_infirmier_show', {'id': infirmier.id}) }}" class="btn btn-secondary btn-xs" ><i class="fas fa-eye mr-1"></i>Voirs</a>
+                    <a href="{{ path('app_infirmier_edit', {'id': infirmier.id}) }}" class="btn btn-warning btn-xs ml-2"><i class="fas fa-edit mr-1"></i>Modifier</a>
+                </div>
+                </td>
+            </tr>
+            {% else %}
+                <tr>
+                    <td colspan="8">No records found</td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+        </tbody>
+    </table>
+    
+     
+    {# Pagination #}
+    <div class="pagination d-flex justify-content-center mt-3">
+        {% if pagination.currentPageNumber != 1 %}
+            <a href="{{ path('app_infirmier_index', {'page': pagination.currentPageNumber - 1}) }}" class="btn btn-primary mr-2 btn-sm">Précédent</a>
+        {% endif %}
+
+        {% for page in range(1, pagination.pageCount) %}
+            {% if pagination.currentPageNumber == page %}
+                <span class="current-page btn btn-primary mr-2 btn-sm">{{ page }}</span>
+            {% else %}
+                <a href="{{ path('app_infirmier_index', {'page': page}) }}" class="btn btn-primary mr-2 btn-sm">{{ page }}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if pagination.currentPageNumber != pagination.pageCount %}
+            <a href="{{ path('app_infirmier_index', {'page': pagination.currentPageNumber + 1}) }}" class="btn btn-primary btn-sm">Suivant</a>
+        {% endif %}
+    </div>
+    {# ... #}
+{% endblock %}

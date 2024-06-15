@@ -1,0 +1,28 @@
+{{ form_start(form) }}
+    {# {{ form_widget(form) }} #}
+    <div class="card-body">
+        <div class="row mb-5">
+            <div class="col-6">
+            <label>Consultation</label>
+                {{ form_widget(form.consultation)}}
+            </div>
+            <div class="col-6">
+            <label>Médicament</label>
+                {{ form_widget(form.medicament) }}
+                {{ form_errors(form.medicament) }}
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class="col-6">
+            <label>Posologie</label>
+                {{ form_widget(form.posologie) }}
+                {{ form_errors(form.posologie) }}
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class="col-3">
+                <button class="btn  btn-success ">{{ button_label|default('Enregistrer') }}</button>
+            </div>
+        </div>
+    </div>
+{{ form_end(form) }}

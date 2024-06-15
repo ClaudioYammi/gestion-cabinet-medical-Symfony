@@ -1,0 +1,16 @@
+<a class="nav-link" href="{{ path('app_logout') }}" data-controlsidebar-slide="true" href="#" role="button" onclick="return confirmLogout(event)">
+    <i class="nav-icon fas fa-power-off"></i>
+</a>
+
+<script>
+    function confirmLogout(event) {
+        if (!confirm("Êtes-vous sûr de vouloir vous déconnecter ? Votre session sera fermée.")) {
+            event.preventDefault();
+        }
+    }
+</script>
+
+{# 
+<a class="nav-link"  href="{{ path('app_logout') }}" data-controlsidebar-slide="true" href="#" role="button">
+    <i class="nav-icon fas fa-power-off"></i>
+</a> #}

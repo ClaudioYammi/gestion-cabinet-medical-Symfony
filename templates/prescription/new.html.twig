@@ -1,0 +1,10 @@
+{% extends 'table.html.twig' %}
+
+{% block title %}New Prescription{% endblock %}
+{% block tablename %}Create new Prescription{% endblock %}
+{% block table %}
+    {{ include('prescription/_form.html.twig') }}
+{% endblock %}
+{% block button %}
+    <a href="{{ path('app_prescription_index') }}" class="btn btn-block btn-dark btn-sm"><i class="fas fa-arrow-left mr-2"></i>Retour</a>
+{% endblock %}

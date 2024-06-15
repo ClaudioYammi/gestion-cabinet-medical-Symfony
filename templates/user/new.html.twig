@@ -1,0 +1,17 @@
+{% extends 'table.html.twig' %}
+
+
+{% block tablename %}New User{% endblock %}
+{% block button %}
+    <a href="{{ path('app_user_index') }}">back to list</a>
+{% endblock %}
+
+{% block title %}New User{% endblock %}
+
+{% block table %}
+    <h1>Create new User</h1>
+
+    {{ include('user/_form.html.twig') }}
+
+    
+{% endblock %}

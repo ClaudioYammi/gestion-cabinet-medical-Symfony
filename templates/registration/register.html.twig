@@ -1,0 +1,38 @@
+{% extends 'table.html.twig' %}
+
+{% block tablename %}
+    Création nouvelle utilisateur
+{% endblock %}
+
+{% block table %}
+{{ form_errors(registrationForm) }}
+{{ form_start(registrationForm) }}
+
+<div class="card-body">
+    <div class="row mb-2">
+        <div class="col-12">
+        {{ form_row(registrationForm.username,{label:'Utilisateur'}) }}
+        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-12">
+        {{ form_row(registrationForm.plainPassword, {label: 'Mot de passe'}) }}
+        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-8">
+        <button type="submit" class="btn btn-success">Enregistrer</button>
+        </div>
+        <div class="col-4">
+        {{ form_row(registrationForm.agreeTerms, {label:'Accepter les conditions d utilisateur'}) }}
+        </div>
+    </div>
+</div>
+
+
+{{ form_end(registrationForm) }}
+      
+        
+{% endblock  %}
+ 
+

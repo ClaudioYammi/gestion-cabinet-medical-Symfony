@@ -1,0 +1,11 @@
+{% extends 'table.html.twig' %}
+
+{% block title %}New Service{% endblock %}
+{% block tablename %}Nouveau Service{% endblock %}
+{% block button %}<a href="{{ path('app_service_index') }}" class="btn btn-block btn-dark btn-sm"><i class="fas fa-arrow-left mr-2"></i>Retour</a>{% endblock %}
+{% block table%}
+
+    {{ include('service/_form.html.twig') }}
+
+    
+{% endblock %}

@@ -1,0 +1,28 @@
+{{ form_start(form) }}
+    {# {{ form_widget(form) }} #}
+
+<div class="card-body">
+    <div class="row mb-5">
+        <div class="col-6">
+            <label>Numero</label>
+            {{ form_widget(form.numero) }}
+        </div>
+    <div class="col-6">
+        <label>Etage</label>
+        {{ form_widget(form.etage) }}
+    </div>
+</div>
+    <div class="row mb-5">
+        <div class="col-6">
+            <label>Service</label>
+            {{ form_widget(form.service) }}
+        </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col-6">
+            <button class="btn btn-success col-3  mt-2">{{ button_label|default('Enregistrer') }}</button>
+        </div>
+    </div>
+</div>
+
+{{ form_end(form) }}

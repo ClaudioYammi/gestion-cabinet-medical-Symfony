@@ -1,0 +1,40 @@
+<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<!-- ChartJS -->
+<script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
+<!-- overlayScrollbars -->
+<script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset('assets/js/adminlte.js') }}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{ asset('assets/js/demo.js') }}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{{ asset('assets/js/pages/dashboard.js') }}"></script>
+{# {{ asset('plugins/summernote/summernote-bs4.min.css') }} #}
+{# <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      $('#telephone').keyup(function() {
+        var val = this.value.replace(/\D/g, '');
+        var newVal = '';
+        while (val.length > 2) {
+          newVal += val.substr(0, 2) + ' ';
+          val = val.substr(2);
+        }
+        newVal += val;
+        this.value = newVal;
+      });
+    });
+    </script> #}
+  <script>
+    function confirmLogout() {
+        return confirm("Êtes-vous sûr de vouloir vous déconnecter ?");
+    }
+  </script>

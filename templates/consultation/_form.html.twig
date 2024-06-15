@@ -1,0 +1,35 @@
+{{ form_start(form) }}
+    {# {{ form_widget(form) }} #}
+         <div class="card-body">
+              <div class="row mb-5">
+              <div class="col-6">
+                <label>Date</label>   
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        {{ form_widget(form.date)}}
+                    </div>
+                </div>
+                <div class="col-6">
+                <label>Heure</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        {{ form_widget(form.heure)}}
+                    </div>
+                </div>
+                
+              </div>
+            <div class="row">
+                  <div class="col-6">
+                    <label>Selectionner un Patient</label>{{ form_widget(form.patient)}}
+                  </div>
+                  <div class="col-6">
+                  <label>Selectionner un Médecin</label>
+                    {{ form_widget(form.medecin)}}
+                  </div>
+                </div>
+              <div class="row mb-5">
+              <button class="btn btn-success col-2 mx-2 mt-3">{{ button_label|default('Enregistrer') }}</button>
+       
+              </div>
+        </div>
+              <!-- /.card-body -->
+      
+{{ form_end(form) }}
