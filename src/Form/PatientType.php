@@ -32,7 +32,7 @@ class PatientType extends AbstractType
                             'min' => 3,
                             'max' => 255,
                             'minMessage' => 'Le nom doit contenir au moins {{ limit }} caractères.',
-                            'maxMessage' => 'Le nom ne peut pas dépasser {{ limit }} caractères.',
+                            'maxMessage' => 'Le nom ne fpeut pas dépasser {{ limit }} caractères.',
                         ]),
                         new Regex([
                             'pattern' => '/^\P{N}+$/u',
